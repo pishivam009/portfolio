@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { MapPin, Mail, ChevronDown, Linkedin, FileText } from 'lucide-react'
+import Image from 'next/image'
 import { siteConfig, heroTagline, heroStats } from '@/lib/data'
 
 export default function Hero() {
@@ -11,7 +12,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
-        <div className="max-w-3xl">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,6 +88,29 @@ export default function Hero() {
             <span className="text-slate-400 dark:text-slate-500">{siteConfig.openToRelocation}</span>
           </motion.div>
         </div>
+
+        {/* Headshot */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="hidden lg:flex flex-shrink-0 justify-center"
+        >
+          <div className="relative w-64 h-64 xl:w-72 xl:h-72">
+            {/* Glow ring */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-teal-500 blur-2xl opacity-25" aria-hidden="true" />
+            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/20 dark:border-white/10 shadow-2xl ring-1 ring-indigo-500/30">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/headshot.jpg`}
+                alt="Piyush Shivam — Implementation Engineer"
+                fill
+                className="object-cover object-top"
+                priority
+                sizes="(max-width: 1024px) 0px, 288px"
+              />
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Stats bar */}

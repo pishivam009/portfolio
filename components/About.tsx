@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { summary } from '@/lib/data'
 import { GraduationCap, Briefcase, Trophy, Quote } from 'lucide-react'
 
@@ -20,9 +21,20 @@ export default function About() {
         >
           {/* Text */}
           <div>
-            <p className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm uppercase tracking-wider mb-3">
-              About
-            </p>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-indigo-500/40 shadow-md lg:hidden">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/headshot.jpg`}
+                  alt="Piyush Shivam"
+                  fill
+                  className="object-cover object-top"
+                  sizes="56px"
+                />
+              </div>
+              <p className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm uppercase tracking-wider">
+                About
+              </p>
+            </div>
             <h2 className="section-heading mb-6">
               Not just an engineer —<br />
               <span className="gradient-text">a team builder.</span>
