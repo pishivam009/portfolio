@@ -2,28 +2,16 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { Code, Activity, Settings, BarChart2, Building2, Users } from 'lucide-react'
 import { skillGroups } from '@/lib/data'
-import clsx from 'clsx'
 
-const levelConfig = {
-  expert: {
-    label: 'Expert',
-    bar: 'w-full',
-    color: 'bg-indigo-500',
-    pill: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300',
-  },
-  proficient: {
-    label: 'Proficient',
-    bar: 'w-4/5',
-    color: 'bg-teal-500',
-    pill: 'bg-teal-100 text-teal-700 dark:bg-teal-500/20 dark:text-teal-300',
-  },
-  working: {
-    label: 'Working knowledge',
-    bar: 'w-3/5',
-    color: 'bg-slate-400',
-    pill: 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300',
-  },
+const iconMap: Record<string, React.ElementType> = {
+  Code,
+  Activity,
+  Settings,
+  BarChart: BarChart2,
+  Building: Building2,
+  Users,
 }
 
 export default function Skills() {
@@ -47,58 +35,43 @@ export default function Skills() {
             <span className="gradient-text">FinTech domain</span>
           </h2>
           <p className="section-subheading">
-            Verified skills — every item here can be demonstrated in conversation or code.
+            Every skill here is demonstrated in production — not self-assessed from a course.
           </p>
-
-          {/* Legend */}
-          <div className="flex flex-wrap gap-3 mt-4">
-            {(Object.entries(levelConfig) as [keyof typeof levelConfig, typeof levelConfig['expert']][]).map(([key, cfg]) => (
-              <span key={key} className={clsx('pill text-xs', cfg.pill)}>
-                {cfg.label}
-              </span>
-            ))}
-          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillGroups.map((group, gi) => (
-            <motion.div
-              key={group.category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: gi * 0.07 }}
-              className="card p-5"
-            >
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-4">
-                {group.category}
-              </h3>
-              <ul className="space-y-3">
-                {group.skills.map((skill) => {
-                  const cfg = levelConfig[skill.level]
-                  return (
-                    <li key={skill.name}>
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                          {skill.name}
-                        </span>
-                        <span className={clsx('pill text-[10px] py-0.5 px-2', cfg.pill)}>
-                          {cfg.label}
-                        </span>
-                      </div>
-                      <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={inView ? { width: undefined } : { width: 0 }}
-                          transition={{ duration: 0.8, delay: gi * 0.07 + 0.3 }}
-                          className={clsx('h-full rounded-full', cfg.color, cfg.bar)}
-                        />
-                      </div>
-                    </li>
-                  )
-                })}
-              </ul>
-            </motion.div>
-          ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {skillGroups.map((group, gi) => {
+            const Icon = iconMap[group.icon] || Code
+            return (
+              <motion.div
+                key={group.category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: gi * 0.07 }}
+                className="card p-5 hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
+                    <Icon size={15} className="text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                    {group.category}
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-2.5 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-700/70 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-500/20 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

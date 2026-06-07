@@ -35,21 +35,25 @@ export default function Navigation() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <nav
+        className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between"
+        aria-label="Main navigation"
+      >
         <a
           href="#"
-          className="font-bold text-slate-900 dark:text-white text-lg tracking-tight hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          className="font-bold text-slate-900 dark:text-white text-lg tracking-tight hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
+          aria-label="Piyush Shivam — back to top"
         >
           PS
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-6" role="list">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
               >
                 {link.label}
               </a>
@@ -61,10 +65,10 @@ export default function Navigation() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
-              aria-label="Toggle theme"
+              className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {theme === 'dark' ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
             </button>
           )}
 
@@ -72,23 +76,28 @@ export default function Navigation() {
             href={`mailto:${siteConfig.email}`}
             className="hidden md:inline-flex btn-primary text-sm py-2"
           >
-            Hire Me
+            Let&apos;s Talk
           </a>
 
           <button
-            className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300"
+            className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>
         </div>
       </nav>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4">
-          <ul className="flex flex-col gap-3">
+        <div
+          id="mobile-menu"
+          className="md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4"
+        >
+          <ul className="flex flex-col gap-3" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
@@ -101,8 +110,11 @@ export default function Navigation() {
               </li>
             ))}
             <li>
-              <a href={`mailto:${siteConfig.email}`} className="btn-primary text-sm w-full justify-center mt-2">
-                Hire Me
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="btn-primary text-sm w-full justify-center mt-2"
+              >
+                Let&apos;s Talk
               </a>
             </li>
           </ul>

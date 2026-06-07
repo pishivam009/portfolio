@@ -27,7 +27,7 @@ export default function Contact() {
     {
       icon: MapPin,
       label: 'Location',
-      value: siteConfig.location,
+      value: `${siteConfig.location} · Relocation open`,
       href: undefined,
       color: 'from-teal-400 to-teal-600',
     },
@@ -50,9 +50,9 @@ export default function Contact() {
             <span className="gradient-text">work together</span>
           </h2>
           <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
-            I&apos;m actively exploring opportunities in FinTech SaaS — Implementation Engineer,
-            Technical Operations, Automation Engineer, and Solutions Engineer roles. Open to India
-            (35–42 LPA target) and international (Singapore, UK, Netherlands).
+            I&apos;m actively exploring roles in FinTech SaaS — Implementation Engineer,
+            Technical Operations, Automation Engineer, and Solutions Engineer.
+            Open to India and international opportunities (Singapore, UK, Netherlands).
           </p>
         </motion.div>
 
@@ -68,6 +68,7 @@ export default function Contact() {
               <div className="card p-5 flex items-center gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group w-full text-left">
                 <div
                   className={`w-11 h-11 rounded-xl bg-gradient-to-br ${link.color} flex items-center justify-center flex-shrink-0`}
+                  aria-hidden="true"
                 >
                   <Icon size={18} className="text-white" />
                 </div>
@@ -83,6 +84,7 @@ export default function Contact() {
                   <ArrowRight
                     size={14}
                     className="ml-auto text-slate-300 dark:text-slate-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors flex-shrink-0"
+                    aria-hidden="true"
                   />
                 )}
               </div>
@@ -93,6 +95,7 @@ export default function Contact() {
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                aria-label={`${link.label}: ${link.value}`}
               >
                 {content}
               </a>
@@ -118,7 +121,7 @@ export default function Contact() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a href={`mailto:${siteConfig.email}`} className="btn-primary">
-              <Mail size={16} />
+              <Mail size={16} aria-hidden="true" />
               Send me an email
             </a>
             <a
@@ -127,7 +130,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="btn-secondary"
             >
-              <Linkedin size={16} />
+              <Linkedin size={16} aria-hidden="true" />
               Connect on LinkedIn
             </a>
           </div>

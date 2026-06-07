@@ -5,7 +5,7 @@ export const siteConfig = {
     'Implementation Engineer with 5 years at ION Group building bank connectivity solutions, founding TechOps teams, and automating enterprise operations workflows in FinTech SaaS.',
   email: 'pishivam009@gmail.com',
   linkedin: 'https://linkedin.com/in/piyush-shivam',
-  github: 'https://github.com/piyush-shivam',
+  github: 'https://github.com/pishivam009',
   location: 'Bengaluru, India',
   openToRelocation: 'Open to relocation: Singapore · UK · Netherlands',
 }
@@ -13,9 +13,16 @@ export const siteConfig = {
 export const heroTagline =
   'I build the systems that keep enterprise payments moving — and the teams that run them.'
 
-export const summary = `Implementation Engineer with 5 years at ION Group, a global FinTech SaaS platform serving banks, corporates, and treasury teams. I started in QA automation, built observability tooling that eliminated alert fatigue across multiple product lines, then founded ION's Corporates SaaS TechOps team from the ground up — training 7 engineers to full operational independence in 3 months. Today I execute enterprise client migrations on NextGen bank connectivity infrastructure, coordinating across banks, DevOps, and TMS integration teams to move treasury clients safely to production.
+export const summary = `5 years at ION Group, a global FinTech SaaS platform serving banks and corporates. I identified a gap in how the company handled SaaS operations, proposed a structure, and built the Coral TechOps team from zero — training 7 engineers to full operational independence in 3 months. That same pattern-recognition now drives how I approach enterprise client migrations on NextGen bank connectivity infrastructure.
 
-My edge is the combination of deep technical execution and the ability to build, run, and present to C-suite leadership — documented in a 5/5 performance review in 2024.`
+My edge: deep technical execution combined with the ability to build teams and present to C-suite. Documented in a 5/5 performance review — "goes far beyond expectations" — in 2024.`
+
+export const heroStats = [
+  { value: '5', unit: 'years', label: 'at ION Group' },
+  { value: '7', unit: 'engineers', label: 'founded & trained' },
+  { value: '18+', unit: 'hrs/sprint', label: 'automated away' },
+  { value: '5/5', unit: 'rating', label: 'performance (2024)' },
+]
 
 export interface Role {
   id: string
@@ -35,28 +42,27 @@ export const roles: Role[] = [
     company: 'ION Group',
     period: 'Apr 2026 – Present',
     type: 'current',
-    tagline: 'Enterprise treasury client migrations to NextGen bank connectivity platform.',
+    tagline: 'Executing enterprise treasury client migrations to NextGen bank connectivity platform.',
     bullets: [
-      'Executing end-to-end enterprise client migrations from legacy to NextGen bank connectivity platform',
-      'Writing and modifying migration scripts; troubleshooting payment format issues across pain001, MT101, camt052/053, BAI2 formats',
-      'Delivered migrations for 7–10 enterprise treasury clients across go-live windows',
-      'Identified and resolved recurring migration blockers; built fixes into team runbooks to prevent recurrence',
-      'Coordinating across banks, clients, Dev, and DevOps teams during high-stakes go-live windows',
+      'Delivered end-to-end migrations for 7+ enterprise treasury clients from legacy to NextGen bank connectivity infrastructure',
+      'Writing and modifying migration scripts; diagnosing payment format issues across pain001, MT101, camt052/053, BAI2',
+      'Resolved recurring migration blockers and embedded fixes into team runbooks — preventing recurrence across future client go-lives',
+      'Coordinating across banks, clients, Dev, and DevOps teams during high-stakes production cutover windows',
       'Supporting certificate provisioning for bank connectivity clients across 5+ TMS platforms',
     ],
   },
   {
     id: 'agile-lead',
-    title: 'Agile Team Lead / Acting Product Owner — NextGen Squad',
+    title: 'Agile Team Lead / Product Owner — NextGen Squad',
     company: 'ION Group',
     period: 'Jun 2025 – Apr 2026',
+    tagline: 'Led sprint delivery for one NextGen squad; owned backlog and UAT sign-off.',
     type: 'past',
-    tagline: 'Led delivery for one NextGen squad within the larger product organisation.',
     bullets: [
-      'Managed sprint backlog and ran all Agile ceremonies for a 6-person NextGen delivery squad',
+      'Managed sprint backlog and ran all Agile ceremonies for a 6-person delivery squad',
       'Wrote user stories and acceptance criteria for Admin UI features shipped to enterprise clients',
-      'Coordinated UAT sign-off with external TMS integration teams — reduced sign-off cycles',
-      'Introduced shift-left testing practices, catching integration defects earlier in the delivery pipeline',
+      'Coordinated UAT sign-off with external TMS integration teams, shortening sign-off cycles',
+      'Introduced shift-left testing practices — catching integration defects earlier in the delivery pipeline',
     ],
   },
   {
@@ -69,11 +75,10 @@ export const roles: Role[] = [
     highlight:
       "Founded ION Corporates' first dedicated SaaS TechOps team — not an appointed role, a self-initiated proposal that received executive buy-in.",
     bullets: [
-      'Identified that BAU operations, monitoring, and P1/P2 incidents were falling to senior engineers with no dedicated team — proposed and built the Coral TechOps structure from scratch',
-      'Recruited and onboarded 7 engineers; designed a structured 3-month training programme covering all critical ops workflows',
-      'Team reached full operational independence within 3 months — handling P1/P2 incidents, DR execution, and BAU independently',
-      'Authored 10+ operational runbooks (COMMS, DNC, EBICS, OpenSearch, DR) — still in active use',
-      'Ran Agile ceremonies for the 8-person centralised SaaS ops team spanning multiple product lines',
+      'Identified that P1/P2 incidents and BAU operations were falling to senior engineers with no dedicated ownership — proposed and built the Coral TechOps structure from scratch',
+      'Recruited and onboarded 7 engineers; designed a structured 3-month training programme across all critical ops workflows',
+      'Team reached full operational independence within 3 months — handling all P1/P2 incidents, DR execution, and BAU independently',
+      'Authored 10+ operational runbooks (COMMS, DNC, EBICS, OpenSearch, DR) — still the team\'s primary reference',
       'Delivered 3 operational reports directly to CTO, CPO, and CEO',
     ],
   },
@@ -85,14 +90,13 @@ export const roles: Role[] = [
     type: 'past',
     tagline: 'Built the monitoring and automation layer for ION Corporates SaaS operations.',
     bullets: [
-      'Built Flask/Docker alert deduplicator connecting to AWS OpenSearch — significantly reduced redundant alert volume and eliminated alert fatigue across the ops team',
+      'Built Flask/Docker alert deduplicator against AWS OpenSearch — significantly reduced redundant alert volume and eliminated alert fatigue across the ops team',
       'Designed and maintained 20+ OpenSearch dashboards and monitors with automated Jira ticket creation on threshold breach',
-      'Automated MDS calendar reconciliation in Python/pandas — saving 18+ hours per sprint (measured and confirmed)',
-      'Contributed to bank connectivity taxonomy initiative across 5 TMS platforms, a CEO-level strategic project',
-      'Built SQL pipelines and PowerBI dashboards for legacy migration analysis',
-      'Built Certificate Expiry Notification tool adopted for bank connectivity certificate lifecycle management',
+      'Automated MDS calendar reconciliation in Python/pandas — saving 18+ hours per sprint (confirmed measurement)',
+      'Contributed to CEO-level bank connectivity taxonomy initiative spanning 5 TMS platforms',
+      'Built SQL pipelines and PowerBI dashboards for legacy migration analysis; built Certificate Expiry Notification tool',
       'Contributed Grafana dashboard templates subsequently adopted by multiple product teams',
-      'Trained 8 BizOps and TechOps team members on observability tooling',
+      'Parallelised E2E payment test suite (Java/JUnit) — 30% faster execution, 40% shorter regression window',
     ],
   },
 ]
@@ -111,36 +115,36 @@ export const achievements: Achievement[] = [
     id: 'team-founding',
     metric: '3',
     unit: 'months',
-    label: 'Zero to operational independence',
+    label: 'Zero to full operational independence',
     description:
-      'Founded Coral TechOps team from scratch and trained 7 engineers to handle P1/P2 incidents, DR, and BAU independently — in 3 months.',
+      'Founded the Coral TechOps team from scratch — recruited, trained, and got 7 engineers handling P1/P2 incidents, DR, and BAU independently.',
     icon: 'Users',
   },
   {
     id: 'sprint-savings',
     metric: '18+',
     unit: 'hrs/sprint',
-    label: 'Automated away',
+    label: 'Recurring manual work eliminated',
     description:
-      'Python/pandas automation of the MDS calendar reconciliation process eliminated 18+ hours of manual work every sprint — confirmed and measured.',
+      'Python/pandas automation of the MDS calendar reconciliation process. Confirmed measurement — every sprint, permanently.',
     icon: 'Clock',
   },
   {
     id: 'test-speed',
     metric: '30%',
     unit: 'faster',
-    label: 'Test suite execution',
+    label: 'Test suite execution time',
     description:
-      'Parallelised and parameterised the E2E payment test suite (Java/JUnit) — 30% faster execution, 40% shorter regression window.',
+      'Parallelised and parameterised the E2E payment test suite (Java/JUnit) — 30% faster runs, 40% shorter regression window. Measured.',
     icon: 'Zap',
   },
   {
     id: 'clients-migrated',
-    metric: '7–10',
+    metric: '7+',
     unit: 'clients',
-    label: 'Enterprise migrations delivered',
+    label: 'Enterprise treasury migrations delivered',
     description:
-      'Executed end-to-end NextGen bank connectivity migrations for 7–10 enterprise treasury clients, coordinating across banks, DevOps, and TMS teams.',
+      'End-to-end NextGen bank connectivity migrations for enterprise treasury clients — coordinating across banks, DevOps, and TMS integration teams.',
     icon: 'ArrowRight',
   },
   {
@@ -149,81 +153,67 @@ export const achievements: Achievement[] = [
     unit: 'runbooks',
     label: 'Operational playbooks authored',
     description:
-      'Wrote 10+ operational runbooks covering COMMS, DNC, EBICS, OpenSearch, and DR workflows — foundational to the TechOps team independence.',
+      'Wrote 10+ operational runbooks (COMMS, DNC, EBICS, OpenSearch, DR) — the foundational docs that enabled TechOps team independence.',
     icon: 'BookOpen',
   },
   {
     id: 'perf-review',
     metric: '5/5',
     unit: '',
-    label: 'Performance review (2024)',
+    label: 'Performance review, 2024',
     description:
-      '"Goes far beyond expectations" — Ravi Visveswaran, ION Group. Consistent improvement: 4/5 in 2022 and 2023, reaching top rating in 2024.',
+      '"Goes far beyond expectations" — Ravi Visveswaran, ION Group. Progression: 4/5 in 2022, 4/5 in 2023, 5/5 in 2024.',
     icon: 'Star',
   },
 ]
 
 export interface SkillGroup {
   category: string
-  skills: { name: string; level: 'expert' | 'proficient' | 'working' }[]
+  icon: string
+  skills: string[]
 }
 
 export const skillGroups: SkillGroup[] = [
   {
-    category: 'Languages',
-    skills: [
-      { name: 'Python', level: 'expert' },
-      { name: 'SQL', level: 'expert' },
-      { name: 'Java', level: 'proficient' },
-      { name: 'PowerShell', level: 'proficient' },
-      { name: 'Bash', level: 'proficient' },
-    ],
+    category: 'Core Languages',
+    icon: 'Code',
+    skills: ['Python', 'SQL', 'Java', 'PowerShell', 'Bash'],
   },
   {
     category: 'Observability & Monitoring',
-    skills: [
-      { name: 'AWS OpenSearch / ELK', level: 'expert' },
-      { name: 'Grafana', level: 'expert' },
-      { name: 'CloudWatch', level: 'proficient' },
-    ],
+    icon: 'Activity',
+    skills: ['AWS OpenSearch / ELK', 'Grafana', 'AWS CloudWatch'],
   },
   {
-    category: 'Automation & DevOps',
-    skills: [
-      { name: 'Docker', level: 'proficient' },
-      { name: 'Flask', level: 'proficient' },
-      { name: 'Jenkins', level: 'proficient' },
-      { name: 'Power Automate', level: 'proficient' },
-      { name: 'Boto3', level: 'proficient' },
-    ],
+    category: 'Automation & Infrastructure',
+    icon: 'Settings',
+    skills: ['Docker', 'Flask', 'Jenkins', 'Boto3 / AWS SDK', 'Power Automate'],
   },
   {
-    category: 'Cloud & Data',
-    skills: [
-      { name: 'AWS (CCP certified)', level: 'proficient' },
-      { name: 'PowerBI', level: 'proficient' },
-      { name: 'Pandas', level: 'expert' },
-      { name: 'SQLAlchemy', level: 'proficient' },
-    ],
+    category: 'Data & Reporting',
+    icon: 'BarChart',
+    skills: ['Pandas', 'PowerBI', 'SQLAlchemy', 'Excel Automation'],
   },
   {
     category: 'FinTech Domain',
+    icon: 'Building',
     skills: [
-      { name: 'Bank Connectivity (SaaS)', level: 'expert' },
-      { name: 'ISO 20022 / pain001 / camt', level: 'working' },
-      { name: 'MT101 / BAI2 / SWIFT', level: 'working' },
-      { name: 'TMS Integration', level: 'proficient' },
-      { name: 'Treasury Operations', level: 'working' },
+      'Bank Connectivity (SaaS)',
+      'ISO 20022 · pain001 · camt052/053',
+      'MT101 · BAI2 · SWIFT',
+      'TMS Integration (5+ platforms)',
+      'Enterprise Treasury Operations',
     ],
   },
   {
-    category: 'Process & Leadership',
+    category: 'Delivery & Leadership',
+    icon: 'Users',
     skills: [
-      { name: 'Agile / Scrum', level: 'expert' },
-      { name: 'P1/P2 Incident Management', level: 'expert' },
-      { name: 'Disaster Recovery', level: 'proficient' },
-      { name: 'Team Training & Onboarding', level: 'expert' },
-      { name: 'Risk-Based Testing', level: 'proficient' },
+      'Agile / Scrum',
+      'P1/P2 Incident Management',
+      'Disaster Recovery',
+      'Team Building & Training',
+      'Risk-Based Testing',
     ],
   },
 ]
@@ -233,7 +223,7 @@ export interface Certification {
   issuer: string
   date: string
   badge: string
-  url?: string
+  description: string
 }
 
 export const certifications: Certification[] = [
@@ -242,17 +232,20 @@ export const certifications: Certification[] = [
     issuer: 'Amazon Web Services',
     date: 'Dec 2023',
     badge: 'AWS',
+    description: 'Cloud fundamentals, AWS services, security, architecture, pricing.',
+  },
+  {
+    name: 'On-the-Spot Award',
+    issuer: 'ION Group',
+    date: 'Dec 2023',
+    description: 'Awarded for automation and monitoring contributions to ION Corporates platform.',
+    badge: 'Award',
   },
   {
     name: 'Oracle Certified Java Associate SE 8',
     issuer: 'Oracle',
     date: 'Apr 2021',
     badge: 'Oracle',
-  },
-  {
-    name: 'On-the-Spot Award',
-    issuer: 'ION Group',
-    date: 'Dec 2023',
-    badge: 'Award',
+    description: 'Java SE 8 fundamentals — foundational to E2E payment test automation work.',
   },
 ]

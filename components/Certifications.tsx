@@ -52,6 +52,7 @@ export default function Certifications() {
               >
                 <div
                   className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center flex-shrink-0`}
+                  aria-hidden="true"
                 >
                   <Icon size={22} className="text-white" />
                 </div>
@@ -63,32 +64,28 @@ export default function Certifications() {
                   <p className="text-xs text-indigo-500 dark:text-indigo-400 font-medium mt-1">
                     {cert.date}
                   </p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 mt-1.5 leading-relaxed">
+                    {cert.description}
+                  </p>
                 </div>
               </motion.div>
             )
           })}
         </div>
 
-        {/* In progress */}
+        {/* Next cert — framed as a goal, not a gap */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-6 card p-5 border-dashed border-2 border-slate-200 dark:border-slate-700"
+          className="mt-6 p-5 rounded-2xl bg-gradient-to-r from-indigo-50 to-teal-50 dark:from-indigo-950/30 dark:to-teal-950/30 border border-indigo-100 dark:border-indigo-900/50"
         >
-          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            In progress
+          <p className="text-sm font-semibold text-indigo-700 dark:text-indigo-300 mb-1">
+            Next: AWS Solutions Architect Associate
           </p>
-          <div className="flex flex-wrap gap-3">
-            {['AWS Solutions Architect Associate', 'ACT Certificate in Treasury Fundamentals (if relocating)'].map(
-              (cert) => (
-                <span key={cert} className="pill-slate text-xs">
-                  {cert}
-                </span>
-              )
-            )}
-          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            Advancing from Cloud Practitioner to Solutions Architect — building on 5 years of AWS OpenSearch, CloudWatch, and Boto3 usage in production.
+          </p>
         </motion.div>
       </div>
     </section>

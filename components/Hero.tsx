@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MapPin, ExternalLink, Download, ChevronDown, Linkedin } from 'lucide-react'
-import { siteConfig, heroTagline } from '@/lib/data'
+import { MapPin, Mail, ChevronDown, Linkedin, FileText } from 'lucide-react'
+import { siteConfig, heroTagline, heroStats } from '@/lib/data'
 
 export default function Hero() {
   return (
@@ -18,7 +18,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <span className="pill-indigo mb-6 inline-flex gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse self-center" />
+              <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse self-center" aria-hidden="true" />
               Open to new opportunities
             </span>
           </motion.div>
@@ -46,24 +46,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-slate-500 dark:text-slate-400 mb-8 max-w-2xl"
+            className="text-lg text-slate-500 dark:text-slate-400 mb-10 max-w-2xl"
           >
             {heroTagline}
           </motion.p>
-
-          {/* Tags */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="flex flex-wrap gap-2 mb-10"
-          >
-            {['Python', 'AWS OpenSearch', 'Grafana', 'Docker', 'ISO 20022', 'Agile', 'ION Group'].map((tag) => (
-              <span key={tag} className="pill-slate text-xs">
-                {tag}
-              </span>
-            ))}
-          </motion.div>
 
           {/* CTA buttons */}
           <motion.div
@@ -73,12 +59,16 @@ export default function Hero() {
             className="flex flex-wrap gap-3 mb-10"
           >
             <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              <Linkedin size={16} />
+              <Linkedin size={16} aria-hidden="true" />
               LinkedIn Profile
             </a>
             <a href={`mailto:${siteConfig.email}`} className="btn-secondary">
-              <ExternalLink size={16} />
+              <Mail size={16} aria-hidden="true" />
               Get in Touch
+            </a>
+            <a href="#contact" className="btn-secondary">
+              <FileText size={16} aria-hidden="true" />
+              View Resume
             </a>
           </motion.div>
 
@@ -90,10 +80,10 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-3 text-sm text-slate-500 dark:text-slate-500"
           >
             <span className="flex items-center gap-1.5">
-              <MapPin size={14} className="text-indigo-500" />
+              <MapPin size={14} className="text-indigo-500" aria-hidden="true" />
               {siteConfig.location}
             </span>
-            <span className="hidden sm:block">·</span>
+            <span className="hidden sm:block" aria-hidden="true">·</span>
             <span className="text-slate-400 dark:text-slate-500">{siteConfig.openToRelocation}</span>
           </motion.div>
         </div>
@@ -106,16 +96,12 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="relative max-w-6xl mx-auto w-full px-4 sm:px-6 pb-16"
       >
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {[
-            { value: '5', unit: 'years', label: 'at ION Group' },
-            { value: '7', unit: 'engineers', label: 'founded & trained' },
-            { value: '18+', unit: 'hrs/sprint', label: 'automated away' },
-            { value: '5/5', unit: 'rating', label: 'performance (2024)' },
-          ].map((stat) => (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4" role="list" aria-label="Career highlights">
+          {heroStats.map((stat) => (
             <div
               key={stat.label}
               className="card p-4 text-center hover:shadow-md transition-shadow"
+              role="listitem"
             >
               <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
                 {stat.value}
@@ -129,11 +115,11 @@ export default function Hero() {
 
       {/* Scroll cue */}
       <a
-        href="#about"
+        href="#achievements"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-600 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors animate-bounce"
-        aria-label="Scroll down"
+        aria-label="Scroll to achievements"
       >
-        <ChevronDown size={24} />
+        <ChevronDown size={24} aria-hidden="true" />
       </a>
     </section>
   )

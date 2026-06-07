@@ -1,35 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { summary } from '@/lib/data'
-import { GraduationCap, Briefcase, Trophy } from 'lucide-react'
+import { GraduationCap, Briefcase, Trophy, Quote } from 'lucide-react'
 
 export default function About() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
-
-  const highlights = [
-    {
-      icon: Briefcase,
-      label: 'Experience',
-      value: '5 years',
-      sub: 'ION Group · Aug 2021–Present',
-    },
-    {
-      icon: GraduationCap,
-      label: 'Education',
-      value: 'B.Tech ECE',
-      sub: 'VIT · 9.2 CGPA · 2021',
-    },
-    {
-      icon: Trophy,
-      label: 'Performance',
-      value: '5/5 (2024)',
-      sub: '"Goes far beyond expectations"',
-    },
-  ]
 
   return (
     <section id="about" className="py-24 bg-slate-50 dark:bg-slate-950">
@@ -54,11 +32,46 @@ export default function About() {
                 <p key={i}>{para}</p>
               ))}
             </div>
+
+            {/* Manager quote */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-8 p-4 rounded-xl border-l-4 border-indigo-500 bg-white dark:bg-slate-800/60 relative"
+            >
+              <Quote size={16} className="text-indigo-400 mb-2" aria-hidden="true" />
+              <p className="text-sm italic text-slate-600 dark:text-slate-300 leading-relaxed">
+                "Outstanding — goes far beyond expectations. Significant potential to increase responsibility."
+              </p>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-2 font-medium">
+                — Ravi Visveswaran, Engineering Manager · ION Group · 2024 Performance Review
+              </p>
+            </motion.div>
           </div>
 
-          {/* Highlights + fact cards */}
+          {/* Fact cards */}
           <div className="space-y-4">
-            {highlights.map((h, i) => {
+            {[
+              {
+                icon: Briefcase,
+                label: 'Experience',
+                value: '5 years',
+                sub: 'ION Group · Aug 2021 – Present',
+              },
+              {
+                icon: GraduationCap,
+                label: 'Education',
+                value: 'B.Tech ECE · 9.2 CGPA',
+                sub: 'VIT University · 2017 – 2021',
+              },
+              {
+                icon: Trophy,
+                label: 'Performance',
+                value: '5/5 (2024)',
+                sub: 'Progression: 4/5 → 4/5 → 5/5',
+              },
+            ].map((h, i) => {
               const Icon = h.icon
               return (
                 <motion.div
@@ -69,7 +82,7 @@ export default function About() {
                   className="card p-5 flex items-center gap-4 hover:shadow-md transition-all"
                 >
                   <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-indigo-100 dark:bg-indigo-500/20 flex items-center justify-center">
-                    <Icon size={20} className="text-indigo-600 dark:text-indigo-400" />
+                    <Icon size={20} className="text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-xs text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wide">
@@ -89,11 +102,11 @@ export default function About() {
               className="card p-5 bg-gradient-to-br from-indigo-50 to-teal-50 dark:from-indigo-950/50 dark:to-teal-950/50 border-indigo-200/50 dark:border-indigo-800/50"
             >
               <p className="text-sm font-medium text-indigo-700 dark:text-indigo-300 mb-1">
-                Domain specialisation
+                FinTech domain
               </p>
               <p className="text-sm text-slate-600 dark:text-slate-300">
                 Bank connectivity · ISO 20022 · SWIFT · TMS integration · SaaS operations
-                across FinTech enterprise clients
+                across enterprise treasury clients
               </p>
             </motion.div>
           </div>
